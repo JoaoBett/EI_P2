@@ -17,20 +17,24 @@ public class Main {
         Aula aula2 = new Aula("Programacao 2", 2);
 
         //Adicionar cada professor a uma aula
-        aula1.setProfessor(professor1);
-        aula2.setProfessor(professor2);
+        aula1.addProfessor(professor1);
+        aula2.addProfessor(professor2);
 
         //Colocar cada aluno numa aula
-        aula1.setAluno(aluno1);
-        aula1.setAluno(aluno2);
-        aula2.setAluno(aluno3);
+        aula1.addAluno(aluno1);
+        aula1.addAluno(aluno2);
+        aula2.addAluno(aluno3);
 
-        aula2.setAluno(aluno1);
-        aula2.setAluno(aluno4);
-        aula2.setAluno(aluno5);
+        aula2.addAluno(aluno1);
+        aula2.addAluno(aluno4);
+        aula2.addAluno(aluno5);
 
 
         //Mostrar as informações da aula
+        //aula1.showAula(aluno1);
+
+        //Sumário da aula
+        aula1.addSummary();
 
     }
 }
