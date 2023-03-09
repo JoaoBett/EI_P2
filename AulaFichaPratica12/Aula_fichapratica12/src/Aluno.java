@@ -6,7 +6,11 @@ public class Aluno {
     private long numero;
     private LinkedList<Aula> aula;
 
-    public Aluno(){}
+    public Aluno(String nome,long numero){
+        this.nome = nome;
+        this.numero = numero;
+        aula = new LinkedList<>();
+    }
 
     public void preencherSumario(Aula aula){
 

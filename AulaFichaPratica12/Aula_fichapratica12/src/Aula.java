@@ -8,7 +8,13 @@ public class Aula {
     private Professor professor;
     private LinkedList<Aluno> aluno;
 
-    public Aula(){}
+    public Aula(String nome,long numero){
+        this.nome = nome;
+        this.numero = numero;
+        this.sumario = "";
+        this.professor = null;
+        aluno = new LinkedList<>();
+    }
 
     public void adicionarLinhaSumario(){
 
