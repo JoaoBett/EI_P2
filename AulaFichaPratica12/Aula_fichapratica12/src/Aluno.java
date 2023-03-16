@@ -16,7 +16,31 @@ public class Aluno {
 
     }
 
-    public void adicionarAula(){
+    public void adicionar(Aula aula1){
+        if(aula1 == null || aula.contains(aula1)){
+            return;
+        }
+        aula.add(aula1);
+        aula1.adicionar(this);
+    }
 
+    public String getNome(){
+        return this.nome;
+    }
+
+    public long getNumero(){
+        return this.numero;
+    }
+
+    public void setNumero(long numero){
+        this.numero = numero;
+    }
+
+    public void remover(Aula aula1){
+        if(aula1 == null || !aula.contains(aula1)){
+            return;
+        }
+        aula.remove(aula);
+        aula1.remover(this);
     }
 }
