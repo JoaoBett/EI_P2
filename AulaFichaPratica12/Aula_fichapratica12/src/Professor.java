@@ -1,3 +1,4 @@
+import javax.management.StringValueExp;
 import java.util.LinkedList;
 
 public class Professor  {
@@ -12,8 +13,13 @@ public class Professor  {
         aula = new LinkedList<>();
     }
 
-    public void preencherSumario(Aula aula){
-
+    public void preencherSumario(Aula aula1){
+        aula1.adicionarLinhaSumario(aula1.getNome());
+        aula1.adicionarLinhaSumario(String.valueOf(aula1.getNumero()));
+        aula1.adicionarLinhaSumario(nome);
+        for (Aluno aluno : aula){
+            aluno.preencherSumario(aula1);
+        }
     }
 
     public void adicionar(Aula aulas){

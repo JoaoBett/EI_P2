@@ -12,8 +12,8 @@ public class Aluno {
         aula = new LinkedList<>();
     }
 
-    public void preencherSumario(Aula aula){
-
+    public void preencherSumario(Aula aula1){
+        aula1.adicionarLinhaSumario(nome);
     }
 
     public void adicionar(Aula aula1){

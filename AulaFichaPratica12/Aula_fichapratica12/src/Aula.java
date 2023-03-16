@@ -4,20 +4,20 @@ public class Aula {
 
     private String nome;
     private long numero;
-    private String sumario;
+    private StringBuilder sumario;
     private Professor professor;
     private LinkedList<Aluno> alunos;
 
     public Aula(String nome,long numero){
         this.nome = nome;
         this.numero = numero;
-        this.sumario = "";
+        sumario = new StringBuilder();
         this.professor = null;
         alunos = new LinkedList<>();
     }
 
     public void adicionarLinhaSumario(){
-
+        sumario.append(linha).append("\n");
     }
 
     public void getProfessor(){
@@ -25,7 +25,7 @@ public class Aula {
     }
 
     public String getSumario(){
-
+        return sumario.toString();
     }
 
     public void getAlunos(){
