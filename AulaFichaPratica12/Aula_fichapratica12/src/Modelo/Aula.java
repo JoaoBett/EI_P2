@@ -27,6 +27,7 @@ public class Aula {
         for (Aluno aluno : alunos) {
             adicionar(aluno);
         }
+        this.horario = horario;
     }
 
     public void adicionarLinhaSumario(String nome) {
@@ -34,7 +35,7 @@ public class Aula {
     }
 
     public void getProfessor() {
-        //fazer
+        //faze
     }
 
     public String getSumario() {
@@ -93,5 +94,8 @@ public class Aula {
         professor.adicionar(this);
     }
 
+    public Horario getHorario(){
+        return horario;
+    }
 
 }

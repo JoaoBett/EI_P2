@@ -45,4 +45,12 @@ public class Aluno {
         aula.remove(aula);
         aula1.remover(this);
     }
+
+    public LinkedList<Aula> getAula(){
+        return new LinkedList<>(aulas);
+    }
+
+    public LinkedList<Aula> getAulas(Horario horario){
+
+    }
 }

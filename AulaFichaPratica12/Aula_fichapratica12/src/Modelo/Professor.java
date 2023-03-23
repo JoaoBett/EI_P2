@@ -52,5 +52,12 @@ public class Professor {
         //fazer
     }
 
+    public LinkedList<Aula> getAula(){
+        return new LinkedList<>(aula);
+    }
+
+    public LinkedList<Aula> getAulas(Horario horario){
+        return null;
+    }
 
 }

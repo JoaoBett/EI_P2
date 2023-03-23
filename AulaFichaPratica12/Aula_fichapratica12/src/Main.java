@@ -1,11 +1,18 @@
 import Modelo.Aula;
 import Modelo.Aluno;
+import Modelo.DiaSemana;
 import Modelo.Professor;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println(DiaSemana.TERCA_FEIRA.getNome());
+
+        /*
         System.out.println(DiaSemana.DOMINGO);
         System.out.println(DiaSemana.DOMINGO.ordinal());
         System.out.println(Arrays.toString(DiaSemana.values()));
@@ -57,5 +64,6 @@ public class Main {
         LinkedList<Aula> aulasAluno2TercaFeiraAposAsVinteHoras = aluno2.getAulas(new Horario(DiaSemana.TERCA_FEIRA, 20, 4));
 
         LinkedList<Aula> aulasAluno3TercaFeira = aluno3.getAulas(new Horario(DiaSemana.TERCA_FEIRA, 8, 16));
+        */
     }
 }
