@@ -1,56 +1,52 @@
-import javax.management.StringValueExp;
 import java.util.LinkedList;
 
-public class Professor  {
+public class Professor {
 
     private String nome;
     private long numero;
     private LinkedList<Aula> aula;
 
-    public Professor(String nome, long numero){
+    public Professor(String nome, long numero) {
         this.nome = nome;
         this.numero = numero;
         aula = new LinkedList<>();
     }
 
-    public void preencherSumario(Aula aula1){
+    public void preencherSumario(Aula aula1) {
         aula1.adicionarLinhaSumario(aula1.getNome());
         aula1.adicionarLinhaSumario(String.valueOf(aula1.getNumero()));
         aula1.adicionarLinhaSumario(nome);
-        for (Aluno aluno : aula){
-            aluno.preencherSumario(aula1);
-        }
     }
 
-    public void adicionar(Aula aulas){
-        if(aulas == null || aula.contains(aulas)){
+    public void adicionar(Aula aulas) {
+        if (aulas == null || aula.contains(aulas)) {
             return;
         }
         aula.add(aulas);
         aulas.setProfessor(this);
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public long getNumero(){
+    public long getNumero() {
         return this.numero;
     }
 
-    public void setNumero(long numero){
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
-    public void remover(Aula aulas){
-        if(aulas == null || aula.contains(aulas)){
+    public void remover(Aula aulas) {
+        if (aulas == null || aula.contains(aulas)) {
             return;
         }
         aula.remove(aulas);
         aulas.desassociarProfessor();
     }
 
-    public void desassociarProfessor(){
+    public void desassociarProfessor() {
 
     }
 

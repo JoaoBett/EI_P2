@@ -8,44 +8,52 @@ public class Aula {
     private Professor professor;
     private LinkedList<Aluno> alunos;
 
-    public Aula(String nome,long numero){
+    public Aula(String nome, long numero) {
+        this(nome, numero, null, new LinkedList<>());
+
+    }
+
+    public Aula(String nome, long numero, Professor professor, LinkedList<Aluno> alunos){
         this.nome = nome;
         this.numero = numero;
         sumario = new StringBuilder();
-        this.professor = null;
+        this.professor = professor;
         alunos = new LinkedList<>();
+        for (Aluno aluno : alunos) {
+            adicionar(aluno);
+        }
     }
 
-    public void adicionarLinhaSumario(){
-        sumario.append(linha).append("\n");
+    public void adicionarLinhaSumario(String nome) {
+        sumario.append("\n");
     }
 
-    public void getProfessor(){
+    public void getProfessor() {
 
     }
 
-    public String getSumario(){
+    public String getSumario() {
         return sumario.toString();
     }
 
-    public void getAlunos(){
+    public void getAlunos() {
 
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public long getNumero(){
+    public long getNumero() {
         return this.numero;
     }
 
-    public void setNumero(long numero){
+    public void setNumero(long numero) {
         this.numero = numero;
     }
 
-    public void adicionar(Aluno aluno){
-        if(aluno == null || alunos.contains(aluno)){
+    public void adicionar(Aluno aluno) {
+        if (aluno == null || alunos.contains(aluno)) {
             return;
         }
         alunos.add(aluno);
@@ -53,15 +61,15 @@ public class Aula {
     }
 
     public void remover(Aluno aluno) {
-        if(aluno == null || !alunos.contains(aluno))    {
+        if (aluno == null || !alunos.contains(aluno)) {
             return;
         }
         alunos.remove(aluno);
         aluno.remover(this);
     }
 
-    public void desassociarProfessor(){
-        if(professor == null){
+    public void desassociarProfessor() {
+        if (professor == null) {
             return;
         }
         Professor professorARemover = professor;
@@ -69,11 +77,11 @@ public class Aula {
         professorARemover.remover(this);
     }
 
-    public void setProfessor(Professor professor){
-        if(professor == null || this.professor == professor){
-           return;
+    public void setProfessor(Professor professor) {
+        if (professor == null || this.professor == professor) {
+            return;
         }
-        if(this.professor != null){
+        if (this.professor != null) {
             this.professor.remover(this);
         }
         this.professor = professor;
