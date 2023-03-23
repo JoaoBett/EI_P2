@@ -1,3 +1,8 @@
+package Modelo;
+
+import Modelo.Aluno;
+import Modelo.Professor;
+
 import java.util.LinkedList;
 
 public class Aula {
@@ -29,7 +34,7 @@ public class Aula {
     }
 
     public void getProfessor() {
-
+        //fazer
     }
 
     public String getSumario() {
@@ -37,7 +42,7 @@ public class Aula {
     }
 
     public void getAlunos() {
-
+        // fazer
     }
 
     public String getNome() {
