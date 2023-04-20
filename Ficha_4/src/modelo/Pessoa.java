@@ -76,4 +76,19 @@ public abstract class Pessoa extends Identificador {
 
         return aulasSobreHorario;
     }
+    //------------------------------------
+
+    protected void escreverSumario(Aula aula){
+        if (aula != null || !aulas.contains(aula)){ return;}
+        aula.adicionarLinhaSumario(aula.getNome());
+        aula.adicionarLinhaSumario(String.valueOf(aula.getNumero()));
+        aula.adicionarLinhaSumario(nome);
+        for (Aluno aluno : aula.getAlunos()) {
+            aluno.preencherSumario(aula);
+        }
+    }
+
+    protected void assinarSumario(Aula aula) {
+        aula.adicionarLinhaSumario(nome);
+    }
 }

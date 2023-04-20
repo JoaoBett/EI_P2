@@ -22,12 +22,12 @@ public class Aluno extends Pessoa {
 
     // -------------------------------
     // FUNCIONALIDADES ----> publicas
-
+    /*
     public void preencherSumario(Aula aula){
         if (aula != null || !aulas.contains(aula)){ return;}
         aula.adicionarLinhaSumario(nome);
     }
-
+    */
     /*public void adicionar(Aula aula) {
         if (aula == null || aulas.contains(aula)) { // se for NULL ou Ja contem a aula na lista de aulas
             return;
@@ -58,7 +58,8 @@ public class Aluno extends Pessoa {
 
 
     // -------------------------------------
-
+    //Já está na super classe Pessoa
+    /*
     public LinkedList<Aula> getAulas() {
         return new LinkedList<>(aulas);
     }
@@ -80,6 +81,6 @@ public class Aluno extends Pessoa {
 
         return aulasSobreHorario;
     }
-
+*/
 
 }

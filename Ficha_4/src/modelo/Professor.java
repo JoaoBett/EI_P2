@@ -22,7 +22,7 @@ public class Professor extends Pessoa {
 
     // -------------------------------
     // FUNCIONALIDADES ----> publicas
-
+/*
     public void preencherSumario (Aula aula) {
         if (aula != null || !aulas.contains(aula)){ return;}
         aula.adicionarLinhaSumario(aula.getNome());
@@ -32,6 +32,9 @@ public class Professor extends Pessoa {
             aluno.preencherSumario(aula);
         }
     }
+*/
+
+    //------------------
 
     /*public void adicionar (Aula aula){
         if (aula == null || aulas.contains(aula)) { // se for NULL ou Ja contem a aula na lista de aulas
@@ -62,7 +65,8 @@ public class Professor extends Pessoa {
 
 
     // -------------------------------------
-
+    //Já está na super classe Pessoa
+    /*
     public LinkedList<Aula> getAulas() {
         return new LinkedList<>(aulas);
     }
@@ -82,4 +86,17 @@ public class Professor extends Pessoa {
 
         return aulasSobreHorario;
     }
+*/
+
+    protected void escreverSumario(Aula aula){
+        if (aula != null || !aulas.contains(aula)){ return;}
+        aula.adicionarLinhaSumario(aula.getNome());
+        aula.adicionarLinhaSumario(String.valueOf(aula.getNumero()));
+        assinarSumario(aula);
+        for (Aluno aluno : aula.getAlunos()) {
+            aluno.preencherSumario(aula);
+        }
+    }
+
 }
+
