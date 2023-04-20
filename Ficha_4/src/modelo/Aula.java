@@ -14,15 +14,17 @@ public class Aula extends Identificador{
 
     private Horario horario;
 
+    private Sala sala;
+
 
     // CONSTRUTOR
     // vamos passar a ter 2 construtores, para caso se quizermos ja criar uma modelo.Aula com alunos/professor
-    public Aula(String nome, long numero, Horario horario) { // ALT + INSERT  // -------- aula passa a ter um horario na sua criacao
+    public Aula(String nome, long numero, Horario horario, Sala sala) { // ALT + INSERT  // -------- aula passa a ter um horario na sua criacao
         // como diz no PDF --> "O horário deve ser definido na criação da aula..."
-        this(nome, numero, horario, null, new LinkedList<>()); // vai chamar o construtor abaixo
+        this(nome, numero, horario, null, new LinkedList<>(), sala); // vai chamar o construtor abaixo
     }
 
-    public Aula(String nome, long numero, Horario horario, Professor professor, LinkedList<Aluno> alunos) { // -> é o construtor mais geral
+    public Aula(String nome, long numero, Horario horario, Professor professor, LinkedList<Aluno> alunos, Sala sala) { // -> é o construtor mais geral
         //this.nome = nome;
         //this.numero = numero;
         super(nome, numero);
@@ -34,6 +36,7 @@ public class Aula extends Identificador{
         for (Aluno aluno : alunos) {
             adicionar(aluno); // é o mesmo que --> this.adicionar(alunos)
         }
+        this.sala = sala;
     }
 
     // -------------------------------
@@ -114,7 +117,26 @@ public class Aula extends Identificador{
         return this.horario.isSobre(horario);
     }
 
+    public void setSala(Sala sala) {
+        // 'this.professor' é o professor que esta na aula ---- o 'professor' é o que vem por referencia
+        if (sala == null || this.sala == sala) { // se o professor for NULL ou ja o professor a inserir é o mesmo
+            return;
+        }
+        if (this.sala != null) { // se  professor for  NAO nULL -- se existe um professor para associar
+            this.sala.remover(this);
+        }
+        // o 'this' referece ah modelo.Aula
+        this.sala = sala;
+        this.sala.adicionar(this); // dizer ao professor que passa a ter esta aula
+    }
 
+    public void desassociarSala(){
+        if (sala == null) { // caso nao exista professor
+            return;
+        }
+        Sala salaARemover = sala; // criar uma copia do rofessor
+        sala = null; // meter a null o professor atual --- antes de remover colocar o professor a null
+        salaARemover.remover(this); // remover (a copia) do professor da aula
 
-
+    }
 }
