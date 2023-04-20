@@ -60,6 +60,7 @@ public class Professor {
         return null;
     }
     */
+
     public LinkedList<Aula> getAulas(Horario horario){
         LinkedList<Aula> aulasSobreHorario = new LinkedList<>();
 
