@@ -12,6 +12,7 @@ public class Aula {
     private StringBuilder sumario;
     private Professor professor;
     private LinkedList<Aluno> alunos;
+    private Horario horario;
 
     public Aula(String nome, long numero) {
         this(nome, numero, null, new LinkedList<>());
@@ -34,16 +35,16 @@ public class Aula {
         sumario.append("\n");
     }
 
-    public void getProfessor() {
-        //faze
+    public Professor getProfessor() {
+        return professor;
     }
 
     public String getSumario() {
         return sumario.toString();
     }
 
-    public void getAlunos() {
-        // fazer
+    public LinkedList<Aluno> getAlunos() {
+        return new LinkedList<>(alunos);
     }
 
     public String getNome() {
@@ -62,6 +63,7 @@ public class Aula {
         if (aluno == null || alunos.contains(aluno)) {
             return;
         }
+
         alunos.add(aluno);
         aluno.adicionar(this);
     }
@@ -92,10 +94,6 @@ public class Aula {
         }
         this.professor = professor;
         professor.adicionar(this);
-    }
-
-    public Horario getHorario(){
-        return horario;
     }
 
 }

@@ -55,9 +55,24 @@ public class Professor {
     public LinkedList<Aula> getAula(){
         return new LinkedList<>(aula);
     }
-
+    /*
     public LinkedList<Aula> getAulas(Horario horario){
         return null;
+    }
+    */
+    public LinkedList<Aula> getAulas(Horario horario){
+        LinkedList<Aula> aulasSobreHorario = new LinkedList<>();
+
+        if (horario == null) {
+            return aulasSobreHorario;
+        }
+        for(Aula aula : aulas){
+            if(aula.isSobreposto(horario)){
+                aulasSobreHorario.add(aula);
+            }
+        }
+
+        return aulasSobreHorario;
     }
 
 }

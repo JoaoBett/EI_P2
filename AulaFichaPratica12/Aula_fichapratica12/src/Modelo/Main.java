@@ -1,3 +1,5 @@
+package Modelo;
+
 import Modelo.Aula;
 import Modelo.Aluno;
 import Modelo.DiaSemana;
