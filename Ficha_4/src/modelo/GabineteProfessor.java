@@ -44,8 +44,7 @@ public class GabineteProfessor extends Descritor implements RepositorioAulas{
         if (aula == null || !aulas.contains(aula) ) {
             return;
         }
-        aulas.remove(aula);
-        aula.desassociarSala();
+        aulas.remove(aula);        aula.desassociarSala();
     }
 
     public boolean isAberta(){
