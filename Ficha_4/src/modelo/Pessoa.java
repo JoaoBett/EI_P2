@@ -2,23 +2,15 @@ package modelo;
 
 import java.util.LinkedList;
 
-public abstract class Pessoa extends Identificador {
-
-    // PROPRIEDADES / ATRIBUTOS ---> sempre privados
+public abstract class Pessoa extends Identificador implements RepositorioAulas {
 
     private LinkedList<Aula> aulas;
 
-
-    // construtor --- permite criar um objeto
     public Pessoa(String nome, long numero) {
         super(nome, numero);
         aulas = new LinkedList<>(); 
     }
 
-
-
-    // -------------------------------
-    // FUNCIONALIDADES ----> publicas
 
     public void preencherSumario (Aula aula) {
         if (aula != null || !aulas.contains(aula)){ return;}
@@ -31,32 +23,30 @@ public abstract class Pessoa extends Identificador {
     }
 
 
+    @Override
     public void adicionar (Aula aula){
         if (aula == null || aulas.contains(aula)) { 
             return;
         }
         aulas.add(aula);
-        // aula.setProfessor(this); -------------------- coisa noa comum com Aluno e Professor
         associar(aula);  // parte distinta as classes Aluno e Professor
     }
     
-    protected abstract void associar(Aula aula); // ABSTRATO - nao posso criar objetos do tipo Pessoa
+    protected abstract void associar(Aula aula);
     
-    
+    @Override
     public void remover(Aula aula){
         if (aula == null || !aulas.contains(aula) ) {
             return;
         }
         aulas.remove(aula);
-        //aula.desassociarProfessor(); -------------------- coisa noa comum com Aluno e Professor
         desassociar(aula);
     }
 
     protected abstract void desassociar(Aula aula);
 
 
-    // -------------------------------------
-
+    @Override
     public LinkedList<Aula> getAulas() {
         return new LinkedList<>(aulas);
     }
@@ -76,7 +66,6 @@ public abstract class Pessoa extends Identificador {
 
         return aulasSobreHorario;
     }
-    //------------------------------------
 
     protected void escreverSumario(Aula aula){
         if (aula != null || !aulas.contains(aula)){ return;}

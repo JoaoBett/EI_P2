@@ -4,10 +4,6 @@ import java.util.LinkedList;
 
 public class Aula extends Identificador{
 
-    // PROPRIEDADES / ATRIBUTOS ---> sempre privados
-
-    //private String nome;
-    //private long numero;
     private StringBuilder sumario;
     private Professor professor;
     private LinkedList<Aluno> alunos;
@@ -17,30 +13,21 @@ public class Aula extends Identificador{
     private Sala sala;
 
 
-    // CONSTRUTOR
-    // vamos passar a ter 2 construtores, para caso se quizermos ja criar uma modelo.Aula com alunos/professor
     public Aula(String nome, long numero, Horario horario, Sala sala) { // ALT + INSERT  // -------- aula passa a ter um horario na sua criacao
-        // como diz no PDF --> "O horário deve ser definido na criação da aula..."
         this(nome, numero, horario, null, new LinkedList<>(), sala); // vai chamar o construtor abaixo
     }
 
     public Aula(String nome, long numero, Horario horario, Professor professor, LinkedList<Aluno> alunos, Sala sala) { // -> é o construtor mais geral
-        //this.nome = nome;
-        //this.numero = numero;
         super(nome, numero);
         this.sumario = new StringBuilder();
         this.horario = horario; // ---------------------------------- new horario
         this.professor = professor;   //setProfessor(professor);
         this.alunos = new LinkedList<>(); // copia da lista de alunos
-        // fazer um 'for' para inserir/associar os alunos a esta aula
         for (Aluno aluno : alunos) {
             adicionar(aluno); // é o mesmo que --> this.adicionar(alunos)
         }
-        this.sala = sala;
+        sala = null;
     }
-
-    // -------------------------------
-    // FUNCIONALIDADES ----> publicas
 
     public void adicionar(Aluno aluno) {
         if (aluno == null || alunos.contains(aluno)) { // se for null OU se aluno ja esta na lista de alunos
@@ -49,6 +36,31 @@ public class Aula extends Identificador{
         alunos.add(aluno); // adicionar aluna ha lista de alunos
         aluno.adicionar(this); // dizer ao aluno que tem esta aula
     }
+
+    public Sala getSala(){
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        if (sala == null || this.sala == sala){
+            return;
+        }
+        if (this.sala != null){
+            this.sala.remover(this);
+        }
+        this.sala = sala;
+        sala.adicionar(this);
+    }
+
+    public void desassociarSala(){
+        if (sala == null){
+            return;
+        }
+        Sala salaARemover = sala;
+        sala = null;
+        salaARemover.remover(this);
+    }
+
 
     /*public void atribuir(modelo.Professor professor) { // 'atribuir' passa a ser um SET --> setProfessor(Professsor)
     } */
@@ -65,20 +77,17 @@ public class Aula extends Identificador{
         return sumario.toString();
     }
 
-    // ----- relacionado com modelo.Professor -----
     public Professor getProfessor() {
         return professor;
     }
 
     public void setProfessor(Professor professor) {
-        // 'this.professor' é o professor que esta na aula ---- o 'professor' é o que vem por referencia
         if (professor == null || this.professor == professor) { // se o professor for NULL ou ja o professor a inserir é o mesmo
             return;
         }
         if (this.professor != null) { // se  professor for  NAO nULL -- se existe um professor para associar
             this.professor.remover(this);
         }
-        // o 'this' referece ah modelo.Aula
         this.professor = professor;
         this.professor.adicionar(this); // dizer ao professor que passa a ter esta aula
     }
@@ -93,8 +102,7 @@ public class Aula extends Identificador{
 
     }
 
-    // ----- realcionado com Alunos -----        o Adiconar(modelo.Aluno) está lá em cima
-    public void remover(Aluno aluno){
+     public void remover(Aluno aluno){
         if (aluno == null || !alunos.contains(aluno) ) { // se for NULL ou se aluno nao existe na lista
             return;
         }
@@ -104,9 +112,6 @@ public class Aula extends Identificador{
     public LinkedList<Aluno> getAlunos() {
         return new LinkedList<>(alunos); // devolver uma copia da lista de alunos
     }
-
-
-    // -------------------------------------------
 
     public Horario getHorario() {
         return horario;
@@ -118,14 +123,12 @@ public class Aula extends Identificador{
     }
 
     public void setSala(Sala sala) {
-        // 'this.professor' é o professor que esta na aula ---- o 'professor' é o que vem por referencia
         if (sala == null || this.sala == sala) { // se o professor for NULL ou ja o professor a inserir é o mesmo
             return;
         }
         if (this.sala != null) { // se  professor for  NAO nULL -- se existe um professor para associar
             this.sala.remover(this);
         }
-        // o 'this' referece ah modelo.Aula
         this.sala = sala;
         this.sala.adicionar(this); // dizer ao professor que passa a ter esta aula
     }

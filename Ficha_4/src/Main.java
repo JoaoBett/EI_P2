@@ -1,6 +1,4 @@
-package ficha5;
-
-import ficha5.modelo.*;
+package modelo;
 
 import java.util.LinkedList;
 

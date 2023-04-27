@@ -2,16 +2,16 @@ package modelo;
 
 import java.util.LinkedList;
 
-public class Sala extends Descritor implements RepositorioAulas{
+public class GabineteProfessor extends Descritor implements RepositorioAulas{
 
     private LinkedList<Aula> aulas;
     private boolean aberta;
 
-    public Sala(String nome) {
+    public GabineteProfessor(String nome) {
         this(nome, new LinkedList<>(), false);
     }
 
-    public Sala(String nome, LinkedList<Aula> aulas, boolean aberta){
+    public GabineteProfessor(String nome, LinkedList<Aula> aulas, boolean aberta){
         super(nome);
         this.aulas = new LinkedList<>();
         for(Aula aula: aulas){
