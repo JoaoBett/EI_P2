@@ -29,7 +29,6 @@ public class Sala extends Descritor implements RepositorioAulas{
         return nome;
     }
 
-git st
     @Override
     public void adicionar (Aula aula){
         if (aula == null || aulas.contains(aula)) {
