@@ -9,15 +9,13 @@ public class Main {
             flag = true;
         }
 
-
         // SWITCH
         switch (x % 2){
-            case 0:
-                flag = true;
-                break;
             case 1:
                 flag = false;
                 break;
+            default:
+                flag = true;
         }
 
         // TERNARY OPERATOR
@@ -46,7 +44,7 @@ public class Main {
         do{
             soma+=i;
             i++;
-        }while(i < x);
+        }while(i <= x);
 
         // CONTINUE USE
         for(i = 0; i<=x; i++){
