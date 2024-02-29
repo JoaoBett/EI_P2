@@ -1,4 +1,4 @@
-# Programação 2 - Learning Repository
+# Programação 2
 
 "Programação 2" is a first year, second semestre class following Programming 1, delving deeper into topics like object-oriented programming. This repository serves as the central hub for my learning journey in this course, containing all my assignments, projects, and additional resources.
 
